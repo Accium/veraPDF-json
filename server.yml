@@ -1,14 +1,11 @@
-# server.yml
+# server.yml de tu contenedor verapdf/rest
+verapdf:
+  recordPasses:      true   # incluirá también los checks que pasan
+  showErrorMessages: true   # detallará el mensaje de cada check
+  # opcionales:
+  # maxFails: -1           # reportar todos los failures
+  # isLogsEnabled: true    # si quieres también logs
 server:
-  # El conector de aplicación usará la variable de entorno PORT (Railway la define)
   applicationConnectors:
     - type: http
       port: ${PORT:-8080}
-  # (Opcional) conector de administración interno
-  adminConnectors:
-    - type: http
-      port: ${ADMIN_PORT:-8081}
-
-# Puedes ajustar límites de tamaño de PDF, heap, etc.
-# maxFileSize: 100MB por defecto
-# Para más parámetros, consulta https://docs.verapdf.org/cli/config/ :contentReference[oaicite:1]{index=1}
